@@ -35,13 +35,91 @@ namespace Pomidor
                 AllFIlesProgressBar.Value = 0;
                 CurrentFileProgressBar.Value = 0;
                 AllFIlesProgressBar.Maximum = files.Length;
+                if (files.Length < 1)
+                {
+                    MessageBox.Show("No Amd files found");
+                    return;
+                }
             }
             catch
             {
                 MessageBox.Show("Error while searching for amd files");
-            
+                return;
             }
-
+            if (File.Exists(newmdstextbox.Text))
+            {
+                string NewParts = "";
+                string NewBones = "";
+                string NewMaterials = "";
+                string NewTextures = "";
+                try
+                {
+                    string line;
+                    using (StreamReader streamReader = new StreamReader(newmdstextbox.Text, Encoding.UTF8))
+                    {
+                        bool savepart = false;
+                        bool savebone = false;
+                        bool savetexture = false;
+                        bool savematerial = false;
+                        while ((line = streamReader.ReadLine()) != null)
+                        {
+                            if (line.StartsWith("\tMotion \""))
+                            {
+                                savematerial = false;
+                                savepart = false;
+                                savetexture = false;
+                                savebone = false;
+                            }
+                            if (line.StartsWith("\tBone \""))
+                            {
+                                savematerial = false;
+                                savepart = false;
+                                savetexture = false;
+                                savebone = true;
+                            }
+                            if (line.StartsWith("\tPart \""))
+                            {
+                                savematerial = false;
+                                savebone = false;
+                                savetexture = false;
+                                savepart = true;
+                            }
+                            if (line.StartsWith("\tMaterial \""))
+                            {
+                                savepart = false;
+                                savebone = false;
+                                savetexture = false;
+                                savematerial = true;
+                            }
+                            if (line.StartsWith("\tTexture \""))
+                            {
+                                savepart = false;
+                                savematerial = false;
+                                savebone = false;
+                                savetexture = true;
+                            }
+                            if (savepart)
+                                NewParts += line;
+                            if (savebone)
+                                NewBones += line;
+                            if (savetexture)
+                                NewTextures += line;
+                            if (savematerial)
+                                NewMaterials += line;
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Error while reading mds file");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mds file doesn't exists");
+                return;
+            }
             //Here is where the pain begins
         }
 
