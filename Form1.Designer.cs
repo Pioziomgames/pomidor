@@ -83,21 +83,21 @@ namespace Pomidor
             // 
             this.darkLabel1.AutoSize = true;
             this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel1.Location = new System.Drawing.Point(49, 20);
+            this.darkLabel1.Location = new System.Drawing.Point(37, 20);
             this.darkLabel1.Name = "darkLabel1";
-            this.darkLabel1.Size = new System.Drawing.Size(129, 13);
+            this.darkLabel1.Size = new System.Drawing.Size(153, 13);
             this.darkLabel1.TabIndex = 3;
-            this.darkLabel1.Text = "Path to a folder with amds";
+            this.darkLabel1.Text = "Path to a folder with amds files:";
             // 
             // darkLabel2
             // 
             this.darkLabel2.AutoSize = true;
             this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel2.Location = new System.Drawing.Point(474, 20);
+            this.darkLabel2.Location = new System.Drawing.Point(411, 20);
             this.darkLabel2.Name = "darkLabel2";
-            this.darkLabel2.Size = new System.Drawing.Size(89, 13);
+            this.darkLabel2.Size = new System.Drawing.Size(201, 13);
             this.darkLabel2.TabIndex = 4;
-            this.darkLabel2.Text = "Path to your mds;";
+            this.darkLabel2.Text = "Path to mds with things to be added mds;";
             // 
             // CurrentFileProgressBar
             // 

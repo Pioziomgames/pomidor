@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>pain.ico</ApplicationIcon>
+    <ApplicationIcon>bleh_3.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AmicitiaLibrary, Version=1.9.5.0, Culture=neutral, processorArchitecture=MSIL">
@@ -149,8 +149,8 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bleh_3.ico" />
     <Content Include="license.txt" />
-    <Content Include="pain.ico" />
     <Content Include="Windows Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
