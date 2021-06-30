@@ -24,13 +24,68 @@ namespace Pomidor
         public Form1()
         {
             InitializeComponent();
+            this.FormClosed += Form1_Closed;
         }
-
+        string PathToAmd = "";
+        string PathToMds = "";
+        string ThingsToDelete = "";
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (File.Exists(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)+ "\\config.pain"))
+            {
+                string line;
+                System.IO.StreamReader file =
+                    new System.IO.StreamReader(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\config.pain");
+                string bigTextBox = "";
+                bool savetoBig = false;
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (line.StartsWith("PathToAmd: "))
+                        PathToAmd = line.Replace("PathToAmd: ", "");
+                    if (line.StartsWith("PathToMds: "))
+                        PathToMds = line.Replace("PathToMds: ", "");
+                    if (line.StartsWith("ThingsToDelete: "))
+                    {
+                        bigTextBox = line.Replace("ThingsToDelete: ", "");
+                        savetoBig = true;
+                    }
+                    if (line.StartsWith("ThingsToDelete_end"))
+                    {
+                        savetoBig = false;
+                    }
+                    if (!line.StartsWith("ThingsToDelete: ") && savetoBig == true)
+                    {
+                        bigTextBox += "\n" +line;
+                    }
+
+                }
+                ThingsToDelete = bigTextBox;
+                Debug.WriteLine("Path to Amd" + PathToAmd);
+                pathTextBox.Text = PathToAmd;
+                newmdstextbox.Text = PathToMds;
+                Debug.WriteLine("Path to mds" + PathToMds);
+                ParttoDeleteTextBox.Text = ThingsToDelete;
+                Debug.WriteLine("to delte" + ThingsToDelete);
+                file.Close();
+            }
             
         }
+        protected void Form1_Closed(object sender, EventArgs e)
+        {
+            PathToAmd = pathTextBox.Text;
+            PathToMds = newmdstextbox.Text;
+            ThingsToDelete = ParttoDeleteTextBox.Text;
+            string config;
+            config = "PathToAmd: " + PathToAmd;
+            config += "\nPathToMds: " + PathToMds;
+            config += "\nThingsToDelete: " + ThingsToDelete;
+            config += "\nThingsToDelete_end";
 
+            using (StreamWriter writetext = new StreamWriter(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\config.pain"))
+            {
+                writetext.WriteLine(config);
+            }
+        }
         private void darkButton1_Click(object sender, EventArgs e)
         {
             string[] files;
@@ -113,6 +168,7 @@ namespace Pomidor
                             if (savematerial)
                                 NewMaterials += line + "\n";
                         }
+                        streamReader.Close();
                     }
                 }
                 catch
@@ -126,8 +182,48 @@ namespace Pomidor
                 MessageBox.Show("Mds file doesn't exists");
                 return;
             }
+            List<string> bones = new List<string>();
+            List<string> parts = new List<string>();
+            List<string> textures = new List<string>();
+            List<string> materials = new List<string>();
+            //Read the textbox with parts to delete
+            if (ParttoDeleteTextBox.Text != "")
+            {
+                using (System.IO.StringReader reader = new System.IO.StringReader(ParttoDeleteTextBox.Text))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    { 
+                        if (line.StartsWith("Bone") )
+                        {
+                            bones.Add( "\t" +line + " {");
+                        }
+                        if (line.StartsWith("Part"))
+                        {
+                            parts.Add("\t" + line + " {");
+                        }
+                        if (line.StartsWith("Texture"))
+                        {
+                            textures.Add("\t" + line + " {");
+                        }
+                        if (line.StartsWith("Material"))
+                        {
+                            materials.Add("\t" + line + " {");
+                        }
+                        
+                    }
+
+                }
+
+
+            }
+
+            //do needed things for each file
             foreach (string file in files)
             {
+                LabelProgressBar.Text = "Converting to mds...";
+                CurrentFileProgressBar.Value = 0;
+                CurrentFileProgressBar.Maximum = 4;
                 //extract gmo data from amd files
                 bool extracted = false;
                 AmdFile amdfile = new AmdFile(file);
@@ -148,6 +244,7 @@ namespace Pomidor
                     Debug.WriteLine("Couldn't find model data");
                     //hopefully never happends
                 }
+                CurrentFileProgressBar.Value++;
                 //convert gmo to mds
                 Process cmd = new Process();
                 cmd.StartInfo.FileName = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\Dependencies\\GMOTool\\GMOTool.exe";
@@ -156,16 +253,22 @@ namespace Pomidor
                 cmd.StartInfo.Arguments += " -E";
                 cmd.Start();
                 cmd.WaitForExit();
-                //extract textures from gmo 
+                CurrentFileProgressBar.Value++;
+                //extract textures from gmo
                 ExtractTextures(GMOpath);
-                //edit mds
+                CurrentFileProgressBar.Value++;
                 string MDSpath = Path.GetDirectoryName(file) + "\\" + Path.GetFileNameWithoutExtension(file) + ".mds";
-
+                //split motion to a different string to modify the mds faster
                 string FullFile = System.IO.File.ReadAllText(MDSpath);
 
                 string NoMotion = FullFile.Remove(FullFile.IndexOf("\tMotion \""));
                 string OnlyMotion = FullFile.Substring(FullFile.IndexOf("\tMotion \""));
+                CurrentFileProgressBar.Value++;
+                //edit mds
                 string EditedMDS = "";
+                LabelProgressBar.Text = "Editing the mds file...";
+                CurrentFileProgressBar.Value = 0;
+                CurrentFileProgressBar.Maximum = NoMotion.Length;
                 using (System.IO.StringReader reader = new System.IO.StringReader(NoMotion))
                 {
                     string line;
@@ -179,40 +282,77 @@ namespace Pomidor
                     {
                         counter++;
 
-                        if (line.StartsWith("\tBone \"") && counter > 10 && bonesAdded == false)
+                        if (line.StartsWith("\tBone \""))
                         {
-                            EditedMDS += NewBones + "\n";
-                            bonesAdded = true;
+                            if (counter > 10 && bonesAdded == false)
+                            {
+                                EditedMDS += NewBones + "\n";
+                                bonesAdded = true;
+                            }
+                            saveline = true;
+                            if (string.Concat(bones).Contains(line))
+                            {
+                                saveline = false;
+                            }
+                        }
+                        if (line.StartsWith("\tPart \"") )
+                        {
+                            if (partsAdded == false)
+                            {
+                                EditedMDS += NewParts + "\n";
+                                partsAdded = true;
+                            }
+                            saveline = true;
+                            if (string.Concat(parts).Contains(line))
+                            {
+                                saveline = false;
+                            }
                         }
 
-                        if (line.StartsWith("\tPart \"") && partsAdded == false)
+                        if (line.StartsWith("\tTexture \""))
                         {
-                            EditedMDS += NewParts + "\n";
-                            partsAdded = true;
+                            if (texturesAdded == false)
+                            {
+                                EditedMDS += NewTextures + "\n";
+                                texturesAdded = true;
+                            }
+                            saveline = true;
+                            if (string.Concat(textures).Contains(line))
+                            {
+                                saveline = false;
+                            }
                         }
 
-                        if (line.StartsWith("\tTexture \"") && texturesAdded == false)
+                        if (line.StartsWith("\tMaterial \""))
                         {
-                            EditedMDS += NewTextures + "\n";
-                            texturesAdded = true;
-                        }
-
-                        if (line.StartsWith("\tMaterial \"") && materialsAdded == false)
-                        {
-                            EditedMDS += NewMaterials + "\n";
-                            materialsAdded = true;
+                            if (materialsAdded == false)
+                            {
+                                EditedMDS += NewMaterials + "\n";
+                                materialsAdded = true;
+                            }
+                            saveline = true;
+                            if (string.Concat(materials).Contains(line))
+                            {
+                                saveline = false;
+                            }
                         }
 
                         if (saveline)
                             EditedMDS += line + "\n" ;
+
+                        CurrentFileProgressBar.Value++;
                     }
                 }
 
+                LabelProgressBar.Text = "Converting back to amd...";
+                CurrentFileProgressBar.Value = 0;
+                CurrentFileProgressBar.Maximum = 4;
                 //overwrite mds
                 using (StreamWriter writetext = new StreamWriter(MDSpath))
                 {
                     writetext.Write(EditedMDS + OnlyMotion);
                 }
+                CurrentFileProgressBar.Value++;
                 //convert to gmo
                 Process cmd3 = new Process();
                 cmd3.StartInfo.FileName = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\Dependencies\\GMOTool\\GMOTool.exe";
@@ -222,7 +362,7 @@ namespace Pomidor
                 cmd3.Start();
                 cmd3.WaitForExit();
                 System.Threading.Thread.Sleep(1000);
-
+                CurrentFileProgressBar.Value++;
                 // run tge's tool to fix gmo
                 Process cmd4 = new Process();
                 cmd4.StartInfo.FileName = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\Dependencies\\p4gpc-gmofix\\p4gpc-gmofix.exe";
@@ -230,7 +370,7 @@ namespace Pomidor
                 cmd4.StartInfo.Arguments = $"\"{GMOpath}\"";
                 cmd4.Start();
                 cmd4.WaitForExit();
-
+                CurrentFileProgressBar.Value++;
 
                 //convert gmo back to amd
                 string AMDpath = Path.GetDirectoryName(file) + "\\" + Path.GetFileNameWithoutExtension(file) + ".amd";
@@ -253,7 +393,11 @@ namespace Pomidor
                     amd.Chunks.Add(chunk);
                     amd.Save(AMDpath);
                 }
+                CurrentFileProgressBar.Value++;
+                AllFIlesProgressBar.Value++;
             }
+            LabelProgressBar.Text = "Finished converting";
+            MessageBox.Show("Your files have been modified");
             
         }
 
@@ -354,6 +498,15 @@ namespace Pomidor
             return -1;
         }
         private void darkLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AllFIlesProgressBar_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void darkLabel5_Click(object sender, EventArgs e)
         {
 
         }

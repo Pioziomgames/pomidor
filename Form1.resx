@@ -117,4 +117,353 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="darkLabel5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;darkLabel2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pathTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 67</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>634, 361</value>
+  </data>
+  <data name="&gt;&gt;CurrentFileProgressBar.Name" xml:space="preserve">
+    <value>CurrentFileProgressBar</value>
+  </data>
+  <data name="&gt;&gt;darkLabel5.Type" xml:space="preserve">
+    <value>DarkUI.Controls.DarkLabel, DarkUI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>650, 400</value>
+  </data>
+  <data name="&gt;&gt;pathTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="darkLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 172</value>
+  </data>
+  <data name="LabelProgressBar.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;darkLabel2.Name" xml:space="preserve">
+    <value>darkLabel2</value>
+  </data>
+  <data name="&gt;&gt;newmdstextbox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;darkLabel1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;newmdstextbox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Start_Button.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 64</value>
+  </data>
+  <data name="&gt;&gt;darkLabel5.Name" xml:space="preserve">
+    <value>darkLabel5</value>
+  </data>
+  <data name="&gt;&gt;newmdstextbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ParttoDeleteTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="darkLabel2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ParttoDeleteTextBox.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;darkLabel1.Name" xml:space="preserve">
+    <value>darkLabel1</value>
+  </data>
+  <data name="AllFIlesProgressBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>547, 23</value>
+  </data>
+  <data name="&gt;&gt;LabelProgressBar.Name" xml:space="preserve">
+    <value>LabelProgressBar</value>
+  </data>
+  <data name="ParttoDeleteTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="LabelProgressBar.Text" xml:space="preserve">
+    <value>Progress in the current file</value>
+  </data>
+  <data name="newmdstextbox.Multiline" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Start_Button.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="ParttoDeleteTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>240, 67</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;Start_Button.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;darkLabel3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CurrentFileProgressBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pathTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="newmdstextbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 96</value>
+  </data>
+  <data name="&gt;&gt;ParttoDeleteTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="pathTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LabelProgressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="Start_Button.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="newmdstextbox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>461, 67</value>
+  </data>
+  <data name="darkLabel2.Text" xml:space="preserve">
+    <value>Path to mds with new things:</value>
+  </data>
+  <data name="ParttoDeleteTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 96</value>
+  </data>
+  <data name="LabelProgressBar.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="darkLabel5.Text" xml:space="preserve">
+    <value>Things to delete
+(separated by new lines):</value>
+  </data>
+  <data name="darkLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 13</value>
+  </data>
+  <data name="&gt;&gt;darkLabel1.Type" xml:space="preserve">
+    <value>DarkUI.Controls.DarkLabel, DarkUI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="AllFIlesProgressBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 188</value>
+  </data>
+  <data name="CurrentFileProgressBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 231</value>
+  </data>
+  <data name="&gt;&gt;darkLabel2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;pathTextBox.Name" xml:space="preserve">
+    <value>pathTextBox</value>
+  </data>
+  <data name="AllFIlesProgressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="darkLabel5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="&gt;&gt;CurrentFileProgressBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;darkLabel3.Type" xml:space="preserve">
+    <value>DarkUI.Controls.DarkLabel, DarkUI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="newmdstextbox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="darkLabel5.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="LabelProgressBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 215</value>
+  </data>
+  <data name="pathTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 96</value>
+  </data>
+  <data name="&gt;&gt;ParttoDeleteTextBox.Name" xml:space="preserve">
+    <value>ParttoDeleteTextBox</value>
+  </data>
+  <data name="&gt;&gt;darkLabel5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Start_Button.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="CurrentFileProgressBar.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="CurrentFileProgressBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>547, 23</value>
+  </data>
+  <data name="darkLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="darkLabel3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="darkLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 51</value>
+  </data>
+  <data name="darkLabel1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="darkLabel2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;AllFIlesProgressBar.Name" xml:space="preserve">
+    <value>AllFIlesProgressBar</value>
+  </data>
+  <data name="darkLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 51</value>
+  </data>
+  <data name="darkLabel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 26</value>
+  </data>
+  <data name="AllFIlesProgressBar.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="darkLabel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="Start_Button.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="pathTextBox.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;LabelProgressBar.Type" xml:space="preserve">
+    <value>DarkUI.Controls.DarkLabel, DarkUI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;darkLabel3.Name" xml:space="preserve">
+    <value>darkLabel3</value>
+  </data>
+  <data name="LabelProgressBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 13</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DarkUI.Forms.DarkForm, DarkUI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pathTextBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="darkLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 13</value>
+  </data>
+  <data name="&gt;&gt;LabelProgressBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="darkLabel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 38</value>
+  </data>
+  <data name="Start_Button.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="&gt;&gt;darkLabel3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;CurrentFileProgressBar.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;darkLabel2.Type" xml:space="preserve">
+    <value>DarkUI.Controls.DarkLabel, DarkUI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="darkLabel3.Text" xml:space="preserve">
+    <value>Overall progress</value>
+  </data>
+  <data name="darkLabel1.Text" xml:space="preserve">
+    <value>Path to a folder with amds</value>
+  </data>
+  <data name="&gt;&gt;AllFIlesProgressBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ParttoDeleteTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="pathTextBox.Multiline" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Start_Button.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 30pt</value>
+  </data>
+  <data name="newmdstextbox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="darkLabel3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="Start_Button.Location" type="System.Drawing.Point, System.Drawing">
+    <value>240, 272</value>
+  </data>
+  <data name="darkLabel5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Pomidor</value>
+  </data>
+  <data name="&gt;&gt;Start_Button.Name" xml:space="preserve">
+    <value>Start_Button</value>
+  </data>
+  <data name="&gt;&gt;darkLabel5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;newmdstextbox.Name" xml:space="preserve">
+    <value>newmdstextbox</value>
+  </data>
+  <data name="&gt;&gt;darkLabel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="darkLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 13</value>
+  </data>
+  <data name="&gt;&gt;AllFIlesProgressBar.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="darkLabel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="pathTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="&gt;&gt;ParttoDeleteTextBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="newmdstextbox.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;Start_Button.Type" xml:space="preserve">
+    <value>DarkUI.Controls.DarkButton, DarkUI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="darkLabel3.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;AllFIlesProgressBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelProgressBar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CurrentFileProgressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
 </root>

@@ -20,3 +20,6 @@ E:\repos\Pomidor\obj\Debug\Pomidor.csproj.CoreCompileInputs.cache
 E:\repos\Pomidor\obj\Debug\Pomidor.csproj.CopyComplete
 E:\repos\Pomidor\obj\Debug\Pomidor.exe
 E:\repos\Pomidor\obj\Debug\Pomidor.pdb
+E:\repos\Pomidor\bin\Debug\en\Pomidor.resources.dll
+E:\repos\Pomidor\obj\Debug\Pomidor.Form1.en.resources
+E:\repos\Pomidor\obj\Debug\en\Pomidor.resources.dll
