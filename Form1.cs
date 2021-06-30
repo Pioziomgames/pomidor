@@ -15,6 +15,7 @@ using AtlusFileSystemLibrary.Common.IO;
 using AmicitiaLibrary.FileSystems.AMD;
 using System.Diagnostics;
 using System.Reflection;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 
 namespace Pomidor
@@ -509,6 +510,46 @@ namespace Pomidor
         private void darkLabel5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void darkButton1_Click_1(object sender, EventArgs e)
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.Filters.Add(new CommonFileDialogFilter("Mds file", "*.mds"));
+            dialog.Title = "Select a mds file with things you want to add..";
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                newmdstextbox.Text = dialog.FileName;
+
+            }
+        }
+
+        private void darkButton2_Click(object sender, EventArgs e)
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            dialog.Title = "Select a folder with your amd files...";
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                pathTextBox.Text = dialog.FileName;
+
+            }
+        }
+
+        private void newmdstextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter) || (e.KeyCode == Keys.Tab))
+            {
+                e.Handled = e.SuppressKeyPress = true;
+            }
+        }
+
+        private void pathTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter) || (e.KeyCode == Keys.Tab))
+            {
+                e.Handled = e.SuppressKeyPress = true;
+            }
         }
     }
 }

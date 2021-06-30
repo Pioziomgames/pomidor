@@ -123,19 +123,25 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Start_Button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 271</value>
+    <value>246, 276</value>
   </data>
   <data name="Start_Button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 64</value>
+    <value>127, 57</value>
   </data>
   <data name="pathTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
+  </data>
+  <data name="pathTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 66</value>
   </data>
   <data name="newmdstextbox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
   </data>
   <data name="newmdstextbox.Location" type="System.Drawing.Point, System.Drawing">
     <value>461, 68</value>
+  </data>
+  <data name="newmdstextbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 65</value>
   </data>
   <data name="CurrentFileProgressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left</value>
@@ -149,14 +155,14 @@
   <data name="ParttoDeleteTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>246, 68</value>
   </data>
+  <data name="ParttoDeleteTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 94</value>
+  </data>
   <data name="darkLabel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>249, 38</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>634, 356</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="darkButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 23</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>650, 400</value>

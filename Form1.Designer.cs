@@ -29,7 +29,6 @@ namespace Pomidor
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Start_Button = new DarkUI.Controls.DarkButton();
             this.pathTextBox = new System.Windows.Forms.RichTextBox();
             this.newmdstextbox = new System.Windows.Forms.RichTextBox();
@@ -41,84 +40,151 @@ namespace Pomidor
             this.LabelProgressBar = new DarkUI.Controls.DarkLabel();
             this.ParttoDeleteTextBox = new System.Windows.Forms.RichTextBox();
             this.darkLabel5 = new DarkUI.Controls.DarkLabel();
+            this.darkButton1 = new DarkUI.Controls.DarkButton();
+            this.darkButton2 = new DarkUI.Controls.DarkButton();
             this.SuspendLayout();
             // 
             // Start_Button
             // 
-            resources.ApplyResources(this.Start_Button, "Start_Button");
+            this.Start_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.Start_Button.Location = new System.Drawing.Point(250, 240);
             this.Start_Button.Name = "Start_Button";
+            this.Start_Button.Padding = new System.Windows.Forms.Padding(5);
+            this.Start_Button.Size = new System.Drawing.Size(127, 64);
+            this.Start_Button.TabIndex = 0;
+            this.Start_Button.Text = "Start";
             this.Start_Button.Click += new System.EventHandler(this.darkButton1_Click);
             // 
             // pathTextBox
             // 
-            resources.ApplyResources(this.pathTextBox, "pathTextBox");
             this.pathTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.pathTextBox.ForeColor = System.Drawing.Color.White;
+            this.pathTextBox.Location = new System.Drawing.Point(12, 34);
             this.pathTextBox.Name = "pathTextBox";
+            this.pathTextBox.Size = new System.Drawing.Size(205, 66);
+            this.pathTextBox.TabIndex = 1;
+            this.pathTextBox.Text = "";
+            this.pathTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pathTextBox_KeyDown);
             // 
             // newmdstextbox
             // 
-            resources.ApplyResources(this.newmdstextbox, "newmdstextbox");
             this.newmdstextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.newmdstextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.newmdstextbox.ForeColor = System.Drawing.Color.White;
+            this.newmdstextbox.Location = new System.Drawing.Point(414, 35);
             this.newmdstextbox.Name = "newmdstextbox";
+            this.newmdstextbox.Size = new System.Drawing.Size(203, 66);
+            this.newmdstextbox.TabIndex = 2;
+            this.newmdstextbox.Text = "";
+            this.newmdstextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.newmdstextbox_KeyDown);
             // 
             // darkLabel1
             // 
-            resources.ApplyResources(this.darkLabel1, "darkLabel1");
+            this.darkLabel1.AutoSize = true;
             this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel1.Location = new System.Drawing.Point(49, 20);
             this.darkLabel1.Name = "darkLabel1";
+            this.darkLabel1.Size = new System.Drawing.Size(129, 13);
+            this.darkLabel1.TabIndex = 3;
+            this.darkLabel1.Text = "Path to a folder with amds";
             // 
             // darkLabel2
             // 
-            resources.ApplyResources(this.darkLabel2, "darkLabel2");
+            this.darkLabel2.AutoSize = true;
             this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel2.Location = new System.Drawing.Point(474, 20);
             this.darkLabel2.Name = "darkLabel2";
+            this.darkLabel2.Size = new System.Drawing.Size(89, 13);
+            this.darkLabel2.TabIndex = 4;
+            this.darkLabel2.Text = "Path to your mds;";
             // 
             // CurrentFileProgressBar
             // 
-            resources.ApplyResources(this.CurrentFileProgressBar, "CurrentFileProgressBar");
+            this.CurrentFileProgressBar.Location = new System.Drawing.Point(12, 200);
             this.CurrentFileProgressBar.Name = "CurrentFileProgressBar";
+            this.CurrentFileProgressBar.Size = new System.Drawing.Size(605, 23);
+            this.CurrentFileProgressBar.TabIndex = 5;
             // 
             // AllFIlesProgressBar
             // 
-            resources.ApplyResources(this.AllFIlesProgressBar, "AllFIlesProgressBar");
+            this.AllFIlesProgressBar.Location = new System.Drawing.Point(12, 157);
             this.AllFIlesProgressBar.Name = "AllFIlesProgressBar";
+            this.AllFIlesProgressBar.Size = new System.Drawing.Size(605, 23);
+            this.AllFIlesProgressBar.TabIndex = 6;
             this.AllFIlesProgressBar.Click += new System.EventHandler(this.AllFIlesProgressBar_Click);
             // 
             // darkLabel3
             // 
-            resources.ApplyResources(this.darkLabel3, "darkLabel3");
+            this.darkLabel3.AutoSize = true;
             this.darkLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel3.Location = new System.Drawing.Point(9, 141);
             this.darkLabel3.Name = "darkLabel3";
+            this.darkLabel3.Size = new System.Drawing.Size(83, 13);
+            this.darkLabel3.TabIndex = 7;
+            this.darkLabel3.Text = "Overall progress";
             // 
             // LabelProgressBar
             // 
-            resources.ApplyResources(this.LabelProgressBar, "LabelProgressBar");
+            this.LabelProgressBar.AutoSize = true;
             this.LabelProgressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.LabelProgressBar.Location = new System.Drawing.Point(9, 184);
             this.LabelProgressBar.Name = "LabelProgressBar";
+            this.LabelProgressBar.Size = new System.Drawing.Size(129, 13);
+            this.LabelProgressBar.TabIndex = 8;
+            this.LabelProgressBar.Text = "Progress in the current file";
             this.LabelProgressBar.Click += new System.EventHandler(this.darkLabel4_Click);
             // 
             // ParttoDeleteTextBox
             // 
-            resources.ApplyResources(this.ParttoDeleteTextBox, "ParttoDeleteTextBox");
             this.ParttoDeleteTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.ParttoDeleteTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ParttoDeleteTextBox.ForeColor = System.Drawing.Color.White;
+            this.ParttoDeleteTextBox.Location = new System.Drawing.Point(250, 35);
             this.ParttoDeleteTextBox.Name = "ParttoDeleteTextBox";
+            this.ParttoDeleteTextBox.Size = new System.Drawing.Size(127, 96);
+            this.ParttoDeleteTextBox.TabIndex = 9;
+            this.ParttoDeleteTextBox.Text = "";
             // 
             // darkLabel5
             // 
-            resources.ApplyResources(this.darkLabel5, "darkLabel5");
+            this.darkLabel5.AutoSize = true;
             this.darkLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel5.Location = new System.Drawing.Point(251, 7);
             this.darkLabel5.Name = "darkLabel5";
+            this.darkLabel5.Size = new System.Drawing.Size(124, 26);
+            this.darkLabel5.TabIndex = 10;
+            this.darkLabel5.Text = "Things to delete\r\n(separated by new lines):";
+            this.darkLabel5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.darkLabel5.Click += new System.EventHandler(this.darkLabel5_Click);
+            // 
+            // darkButton1
+            // 
+            this.darkButton1.Location = new System.Drawing.Point(414, 108);
+            this.darkButton1.Name = "darkButton1";
+            this.darkButton1.Padding = new System.Windows.Forms.Padding(5);
+            this.darkButton1.Size = new System.Drawing.Size(203, 23);
+            this.darkButton1.TabIndex = 11;
+            this.darkButton1.Text = "Browse";
+            this.darkButton1.Click += new System.EventHandler(this.darkButton1_Click_1);
+            // 
+            // darkButton2
+            // 
+            this.darkButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.darkButton2.Location = new System.Drawing.Point(12, 108);
+            this.darkButton2.Name = "darkButton2";
+            this.darkButton2.Padding = new System.Windows.Forms.Padding(5);
+            this.darkButton2.Size = new System.Drawing.Size(205, 23);
+            this.darkButton2.TabIndex = 12;
+            this.darkButton2.Text = "Browse";
+            this.darkButton2.Click += new System.EventHandler(this.darkButton2_Click);
             // 
             // Form1
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(629, 320);
+            this.Controls.Add(this.darkButton2);
+            this.Controls.Add(this.darkButton1);
             this.Controls.Add(this.darkLabel5);
             this.Controls.Add(this.LabelProgressBar);
             this.Controls.Add(this.darkLabel3);
@@ -133,6 +199,7 @@ namespace Pomidor
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.Text = "Pomidor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,6 +219,8 @@ namespace Pomidor
         private DarkUI.Controls.DarkLabel LabelProgressBar;
         private System.Windows.Forms.RichTextBox ParttoDeleteTextBox;
         private DarkUI.Controls.DarkLabel darkLabel5;
+        private DarkUI.Controls.DarkButton darkButton1;
+        private DarkUI.Controls.DarkButton darkButton2;
     }
 }
 
