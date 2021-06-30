@@ -29,6 +29,7 @@ namespace Pomidor
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Start_Button = new DarkUI.Controls.DarkButton();
             this.pathTextBox = new System.Windows.Forms.RichTextBox();
             this.newmdstextbox = new System.Windows.Forms.RichTextBox();
@@ -139,7 +140,7 @@ namespace Pomidor
             this.ParttoDeleteTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.ParttoDeleteTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ParttoDeleteTextBox.ForeColor = System.Drawing.Color.White;
-            this.ParttoDeleteTextBox.Location = new System.Drawing.Point(250, 35);
+            this.ParttoDeleteTextBox.Location = new System.Drawing.Point(250, 34);
             this.ParttoDeleteTextBox.Name = "ParttoDeleteTextBox";
             this.ParttoDeleteTextBox.Size = new System.Drawing.Size(127, 96);
             this.ParttoDeleteTextBox.TabIndex = 9;
@@ -197,6 +198,7 @@ namespace Pomidor
             this.Controls.Add(this.Start_Button);
             this.Controls.Add(this.ParttoDeleteTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Pomidor";

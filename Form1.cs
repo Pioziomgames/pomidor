@@ -174,7 +174,7 @@ namespace Pomidor
                 }
                 catch
                 {
-                    MessageBox.Show("Error while reading mds file");
+                    MessageBox.Show("Error while reading the mds file");
                     return;
                 }
             }
@@ -218,6 +218,24 @@ namespace Pomidor
 
 
             }
+
+            //copy textures to the folder with amd files
+            Debug.WriteLine(Path.GetDirectoryName(newmdstextbox.Text) + "\\textures");
+            if (Directory.Exists(Path.GetDirectoryName(newmdstextbox.Text) + "\\textures"))
+            {
+                if (!Directory.Exists(pathTextBox.Text + "\\textures"))
+                {
+                    Directory.CreateDirectory(pathTextBox.Text + "\\textures");
+                }
+                string[] Textures = Directory.GetFiles(Path.GetDirectoryName(newmdstextbox.Text) + "\\textures", "*.tm2");
+                Debug.WriteLine(Textures.Length);
+                foreach (string textureName in Textures)
+                {
+                    Debug.WriteLine("hmmm");
+                    File.Copy(textureName, pathTextBox.Text + "\\textures\\" + Path.GetFileName(textureName));
+                }
+            }
+
 
             //do needed things for each file
             foreach (string file in files)

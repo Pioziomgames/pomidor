@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pain.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AmicitiaLibrary, Version=1.9.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\AmicitiaLibrary.1.9.5\lib\netstandard2.0\AmicitiaLibrary.dll</HintPath>
@@ -147,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
+    <Content Include="pain.ico" />
     <Content Include="Windows Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
