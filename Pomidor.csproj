@@ -150,7 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bleh_3.ico" />
-    <Content Include="license.txt" />
     <Content Include="Windows Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

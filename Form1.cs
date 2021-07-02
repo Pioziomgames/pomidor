@@ -32,6 +32,8 @@ namespace Pomidor
         string ThingsToDelete = "";
         private void Form1_Load(object sender, EventArgs e)
         {
+            newmdstextbox.AllowDrop = true;
+            pathTextBox.AllowDrop = true;
             if (File.Exists(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)+ "\\config.pain"))
             {
                 string line;
@@ -194,24 +196,100 @@ namespace Pomidor
                 {
                     string line;
                     while ((line = reader.ReadLine()) != null)
-                    { 
+                    {
+                        bool found = false;
                         if (line.StartsWith("Bone") )
+                        {   if (!line.Contains("\""))
+                            {
+                                bones.Add("\t" + line.Replace("Bone ", "Bone \"") + "\" {");
+                            }
+                            else
+                                bones.Add( "\t" +line + " {");
+
+                            found = true;
+                        }
+                        else if (line.StartsWith("bone"))
                         {
-                            bones.Add( "\t" +line + " {");
+                            if (!line.Contains("\""))
+                            {
+                                bones.Add("\t" + line.Replace("bone ", "Bone \"") + "\" {");
+                            }
+                            else
+                                bones.Add("\t" + line.Replace("bone \"", "Bone \"") + " {");
+
+                            found = true;
                         }
                         if (line.StartsWith("Part"))
                         {
-                            parts.Add("\t" + line + " {");
+                            if (!line.Contains("\""))
+                            {
+                                parts.Add("\t" + line.Replace("Part ", "Part \"") + "\" {");
+                            }
+                            else
+                                parts.Add("\t" + line + " {");
+
+                            found = true;
+                        }
+                        else if (line.StartsWith("part"))
+                        {
+                            if (!line.Contains("\""))
+                            {
+                                bones.Add("\t" + line.Replace("part ", "Part \"") + "\" {");
+                            }
+                            else
+                                bones.Add("\t" + line.Replace("part \"", "Part \"") + " {");
+
+                            found = true;
                         }
                         if (line.StartsWith("Texture"))
                         {
-                            textures.Add("\t" + line + " {");
+                            if (!line.Contains("\""))
+                            {
+                                textures.Add("\t" + line.Replace("Texture ", "Texture \"") + "\" {");
+                            }
+                            else
+                                textures.Add("\t" + line + " {");
+
+                            found = true;
+                        }
+                        else if (line.StartsWith("texture"))
+                        {
+                            if (!line.Contains("\""))
+                            {
+                                bones.Add("\t" + line.Replace("texture ", "Texture \"") + "\" {");
+                            }
+                            else
+                                bones.Add("\t" + line.Replace("texture \"", "Texture \"") + " {");
+
+                            found = true;
                         }
                         if (line.StartsWith("Material"))
                         {
-                            materials.Add("\t" + line + " {");
+                            if (!line.Contains("\""))
+                            {
+                                materials.Add("\t" + line.Replace("Material ","Material \"") + "\" {");
+                            }
+                            else
+                                materials.Add("\t" + line + " {");
+
+                            found = true;
                         }
-                        
+                        else if (line.StartsWith("material"))
+                        {
+                            if (!line.Contains("\""))
+                            {
+                                bones.Add("\t" + line.Replace("material ", "Material \"") + "\" {");
+                            }
+                            else
+                                bones.Add("\t" + line.Replace("material \"", "Material \"") + " {");
+
+                            found = true;
+                        }
+                        if (!found && line != "")
+                        {
+                            MessageBox.Show("Line: " + line + "\ndoesn't start with an accepted type");
+                            return;
+                        }
                     }
 
                 }
@@ -232,6 +310,8 @@ namespace Pomidor
                 foreach (string textureName in Textures)
                 {
                     Debug.WriteLine("hmmm");
+                    if (File.Exists(pathTextBox.Text + "\\textures\\" + Path.GetFileName(textureName)))
+                        File.Delete(pathTextBox.Text + "\\textures\\" + Path.GetFileName(textureName));
                     File.Copy(textureName, pathTextBox.Text + "\\textures\\" + Path.GetFileName(textureName));
                 }
             }
@@ -299,11 +379,12 @@ namespace Pomidor
                     bool texturesAdded = false;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        counter++;
+                        
 
                         if (line.StartsWith("\tBone \""))
                         {
-                            if (counter > 10 && bonesAdded == false)
+                            
+                            if (counter > 3 && bonesAdded == false)
                             {
                                 EditedMDS += NewBones + "\n";
                                 bonesAdded = true;
@@ -313,6 +394,7 @@ namespace Pomidor
                             {
                                 saveline = false;
                             }
+                            counter++;
                         }
                         if (line.StartsWith("\tPart \"") )
                         {
@@ -341,7 +423,7 @@ namespace Pomidor
                                 saveline = false;
                             }
                         }
-
+                        
                         if (line.StartsWith("\tMaterial \""))
                         {
                             if (materialsAdded == false)
@@ -357,7 +439,21 @@ namespace Pomidor
                         }
 
                         if (saveline)
-                            EditedMDS += line + "\n" ;
+                        {
+                            if (line.StartsWith("\t\tFileName \""))
+                            {
+                                if (!line.Contains("textures\\"))
+                                {
+                                    EditedMDS += line.Replace("FileName \"", "FileName \"textures\\") + "\n";
+                                }
+                                else
+                                    EditedMDS += line + "\n";
+
+
+                            }
+                            else
+                                EditedMDS += line + "\n";
+                        }
 
                         CurrentFileProgressBar.Value++;
                     }
@@ -370,6 +466,7 @@ namespace Pomidor
                 using (StreamWriter writetext = new StreamWriter(MDSpath))
                 {
                     writetext.Write(EditedMDS + OnlyMotion);
+                    Debug.WriteLine(MDSpath);
                 }
                 CurrentFileProgressBar.Value++;
                 //convert to gmo
@@ -377,7 +474,7 @@ namespace Pomidor
                 cmd3.StartInfo.FileName = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\Dependencies\\GMOTool\\GMOTool.exe";
                 cmd3.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 cmd3.StartInfo.Arguments = $"\"{MDSpath}\"";
-                cmd3.StartInfo.Arguments += " -PSV";
+                cmd3.StartInfo.Arguments += " -PSV -o " + MDSpath.Replace(".mds","_temp");
                 cmd3.Start();
                 cmd3.WaitForExit();
                 System.Threading.Thread.Sleep(1000);
@@ -386,7 +483,7 @@ namespace Pomidor
                 Process cmd4 = new Process();
                 cmd4.StartInfo.FileName = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\Dependencies\\p4gpc-gmofix\\p4gpc-gmofix.exe";
                 cmd4.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                cmd4.StartInfo.Arguments = $"\"{GMOpath}\"";
+                cmd4.StartInfo.Arguments = $"\"{GMOpath.Replace(".gmo", "_temp.gmo")}\" \"{GMOpath}\"";
                 cmd4.Start();
                 cmd4.WaitForExit();
                 CurrentFileProgressBar.Value++;
@@ -412,6 +509,7 @@ namespace Pomidor
                     amd.Chunks.Add(chunk);
                     amd.Save(AMDpath);
                 }
+                File.Delete(GMOpath.Replace(".gmo", "_temp.gmo"));
                 CurrentFileProgressBar.Value++;
                 AllFIlesProgressBar.Value++;
             }
@@ -529,7 +627,37 @@ namespace Pomidor
         {
 
         }
+        private void newmdstextbox_DragEnter(object sender,
+        System.Windows.Forms.DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
 
+        private void pathTextBox_DragEnter(object sender,
+        System.Windows.Forms.DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+
+        private void newmdstextbox_DragDrop(object sender,
+        System.Windows.Forms.DragEventArgs e)
+        {
+            string path = ((string[])e.Data.GetData(DataFormats.FileDrop, false))[0];
+
+            newmdstextbox.Text = path;
+        }
+
+        private void pathTextBox_DragDrop(object sender,
+        System.Windows.Forms.DragEventArgs e)
+        {
+            string path = ((string[])e.Data.GetData(DataFormats.FileDrop, false))[0];
+            if (path.Contains("."))
+            {
+                path = Path.GetDirectoryName(path);
+            }
+            pathTextBox.Text = path;
+        }
         private void darkButton1_Click_1(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();

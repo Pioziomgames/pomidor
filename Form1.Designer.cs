@@ -65,6 +65,8 @@ namespace Pomidor
             this.pathTextBox.Size = new System.Drawing.Size(205, 66);
             this.pathTextBox.TabIndex = 1;
             this.pathTextBox.Text = "";
+            this.pathTextBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.pathTextBox_DragDrop);
+            this.pathTextBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.pathTextBox_DragEnter);
             this.pathTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pathTextBox_KeyDown);
             // 
             // newmdstextbox
@@ -77,6 +79,8 @@ namespace Pomidor
             this.newmdstextbox.Size = new System.Drawing.Size(203, 66);
             this.newmdstextbox.TabIndex = 2;
             this.newmdstextbox.Text = "";
+            this.newmdstextbox.DragDrop += new System.Windows.Forms.DragEventHandler(this.newmdstextbox_DragDrop);
+            this.newmdstextbox.DragEnter += new System.Windows.Forms.DragEventHandler(this.newmdstextbox_DragEnter);
             this.newmdstextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.newmdstextbox_KeyDown);
             // 
             // darkLabel1
@@ -140,9 +144,9 @@ namespace Pomidor
             this.ParttoDeleteTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.ParttoDeleteTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ParttoDeleteTextBox.ForeColor = System.Drawing.Color.White;
-            this.ParttoDeleteTextBox.Location = new System.Drawing.Point(250, 34);
+            this.ParttoDeleteTextBox.Location = new System.Drawing.Point(223, 34);
             this.ParttoDeleteTextBox.Name = "ParttoDeleteTextBox";
-            this.ParttoDeleteTextBox.Size = new System.Drawing.Size(127, 96);
+            this.ParttoDeleteTextBox.Size = new System.Drawing.Size(185, 96);
             this.ParttoDeleteTextBox.TabIndex = 9;
             this.ParttoDeleteTextBox.Text = "";
             // 
@@ -160,16 +164,20 @@ namespace Pomidor
             // 
             // darkButton1
             // 
+            this.darkButton1.AllowDrop = true;
             this.darkButton1.Location = new System.Drawing.Point(414, 108);
             this.darkButton1.Name = "darkButton1";
             this.darkButton1.Padding = new System.Windows.Forms.Padding(5);
             this.darkButton1.Size = new System.Drawing.Size(203, 23);
             this.darkButton1.TabIndex = 11;
             this.darkButton1.Text = "Browse";
+            this.darkButton1.DragDrop += new System.Windows.Forms.DragEventHandler(this.newmdstextbox_DragDrop);
+            this.darkButton1.DragEnter += new System.Windows.Forms.DragEventHandler(this.newmdstextbox_DragEnter);
             this.darkButton1.Click += new System.EventHandler(this.darkButton1_Click_1);
             // 
             // darkButton2
             // 
+            this.darkButton2.AllowDrop = true;
             this.darkButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.darkButton2.Location = new System.Drawing.Point(12, 108);
             this.darkButton2.Name = "darkButton2";
@@ -177,6 +185,8 @@ namespace Pomidor
             this.darkButton2.Size = new System.Drawing.Size(205, 23);
             this.darkButton2.TabIndex = 12;
             this.darkButton2.Text = "Browse";
+            this.darkButton2.DragDrop += new System.Windows.Forms.DragEventHandler(this.pathTextBox_DragDrop);
+            this.darkButton2.DragEnter += new System.Windows.Forms.DragEventHandler(this.pathTextBox_DragEnter);
             this.darkButton2.Click += new System.EventHandler(this.darkButton2_Click);
             // 
             // Form1
